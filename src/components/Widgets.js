@@ -2,7 +2,7 @@ import React from "react";
 import { UserCircleIcon, PaperClipIcon } from "@heroicons/react/20/solid";
 import GoogleMapReact from 'google-map-react';
 
-import { CircleChart, BarChart, ProjectChart, LineChart } from "./Charts";
+import { PieChart, BarChart, ProjectChart, LineChart, AreaChart } from "./Charts";
 import ProfileCover from "../assets/img/profile-cover.jpg";
 import Marker from "./Marker";
 import { lgas } from "../data/lgas";
@@ -10,7 +10,7 @@ import { lgas } from "../data/lgas";
 
 export const ProfileCardWidget = () => {
   return (
-    <div className="bg-white rounded-2xl flex flex-col justify-center">
+    <div className="flex flex-col justify-center bg-white dark:bg-gray-700 rounded-2xl">
       <div className="">
         <img src={ProfileCover} alt="Cover for profile" className="object-cover rounded-t-2xl"/>
       </div>
@@ -30,19 +30,20 @@ export const ChoosePhotoWidget = (props) => {
   const { title, photo } = props;
 
 	return (
-		<div className="bg-white shadow-sm rounded-2xl p-5 overflow-hidden">
-			<h4 className="h4">{title}</h4>
-			<div className="grid grid-cols-3 gap-3">
-				<div className="col-span-1">
-					<img src={ProfileCover} alt="Cover for profile" className="object-cover h-full w-full"/>
+		<div className="p-5 overflow-hidden bg-white shadow-sm dark:bg-gray-700 rounded-2xl">
+			<h4 className="leading-relaxed h4">{title}</h4>
+			<div className="grid grid-cols-5 gap-2">
+				<div className="col-span-2">
+					<img src={ProfileCover} alt="Cover for profile" className="object-cover w-full h-full"/>
 				</div>
-				<div className="col-span-2 flex lg:justify-center">
-					<div className="">
-						<PaperClipIcon className="h-10" />
-						<input type="file" />
-						<div className="font-medium">Choose Image</div>
-						<div className="text-xs">JPG, GIF or PNG. Max size of 800K</div>
-					</div>
+				<div className="col-span-3">
+					{/* <input type="file" className="hidden"/>
+					<div className="font-medium">Choose Image</div> */}
+						<label htmlFor="profile-photo-upload" className="">
+							<PaperClipIcon className="w-10 h-10 cursor-pointer" />
+							<input type="file" id="profile-photo-upload" className="hidden" onChange={(evt)=>{}}/>
+						</label>
+					<p className="text-xs">JPG, GIF or PNG. Max size of 800K</p>
 				</div>
 			</div>
 		</div>
@@ -53,19 +54,19 @@ export const CardWidget = (props) => {
   const { icon, title, value} = props;
 
 	return (
-		<div className="bg-white shadow-md p-4 rounded-lg h-full">
-			<div className="xl:flex items-center justify-between">
-				<div className="xl:w-1/3 flex items-center">
+		<div className="h-full p-8 bg-white rounded-lg shadow-md dark:bg-gray-700 md:p-4">
+			<div className="items-center justify-between xl:flex">
+				<div className="flex items-center xl:w-1/3">
 					<div className="rounded">{icon}</div>
-					<div className="sm:hidden ml-10 md:ml-4">
-						<h3 className="h3">{title}</h3>
+					<div className="ml-10 sm:hidden md:ml-4">
+						<h3 className="h4">{title}</h3>
 						<h5 className="h5">{value} Projects</h5>
 					</div>
 				</div>
 				<div className="xl:w-2/3">
 					<div className="hidden sm:block">
-						<h4 className="h4">{title}</h4>
-						<h5 className="h5">{value} Projects</h5>
+						<h5 className="h5">{title}</h5>
+						<h6 className="h6">{value} Projects</h6>
 					</div>
 				</div>
 			</div>
@@ -74,24 +75,21 @@ export const CardWidget = (props) => {
 };
 
 export const PieChartWidget = (props) => {
-  const { title, data = [] } = props;
-  const series = data.map(d => d.value);
-  const labels = data.map(d => d.label);
-  const colors = data.map(d => d.chartColor);
+  const { title, series, labels, colors, extraProps } = props;
 
   return (
     <div className="">
-        <h5 className="h5">{title}</h5>
-		    <hr/>
-        <div className="flex items-center space-x-4 mt-8">
-			<div className="w-2/3">
-				<CircleChart series={series} labels={labels} colors={colors}/>
+        <h5 className="text-center h5">{title}</h5>
+		<hr/>
+        <div className="flex items-center justify-center mt-8 space-x-4">
+			<div className="w-2/3 md:max-w-80 lg:max-w-xs">
+				<PieChart series={series} labels={labels} colors={colors}/>
 			</div>
 			<div className="w-1/3">
-				{data.map(d => (
-				<h6 key={`circle-element-${d.id}`} className="flex items-center space-x-2 text-gray-500 h6">
-					<d.icon className={``} />
-					<span>{`${d.code} `}{`${d.value}%`}</span>
+				{extraProps.map(label => (
+				<h6 key={label.code} className="flex items-center space-x-2 text-gray-500 h6 lg:text-sm xl:h6">
+					<label.icon className={``} />
+					<span>{`${label.code} - ${label.value}`}</span>
 				</h6>
 				))}
 			</div>
@@ -101,20 +99,20 @@ export const PieChartWidget = (props) => {
 };
 
 export const BarChartWidget = (props) => {
-  const { title, value, data = [] } = props;
+  const { title, value, data = [], heading=true } = props;
   const labels = ['JRE', 'MMC', 'BIU', 'BAM', 'BGA', 'DMB'];
   const series = data.map(d => d.value);
 
   return (
     <div border="light" className="shadow-sm">
-      <div className="d-flex flex-row align-items-center flex-0 border-bottom">
+      <div className="flex-row d-flex align-items-center flex-0 border-bottom">
         <div className="d-block">
-          <h6 className="fw-normal text-gray mb-2">{title}</h6>
+          <h6 className="mb-2 fw-normal text-gray">{title}</h6>
           {/* <h3>N{value}</h3> */}
         </div>
         <div className="d-block ms-auto">
           {data.map(d => (
-            <div key={`bar-element-${d.id}`} className="d-flex align-items-center text-end text-nowrap mb-2">
+            <div key={`bar-element-${d.id}`} className="mb-2 d-flex align-items-center text-end text-nowrap">
               <span className={`shape-xs rounded-circle bg-${d.color} me-2`} />
               <small className="fw-normal">{d.label}</small>
             </div>
@@ -138,29 +136,46 @@ export const LineChartWidget = (props) => {
 
   return (
     <div className="shadow-sm">
-    	<h5 className="h5 text-center">{title}</h5>
+    	<h5 className="text-center h5">{title}</h5>
       <hr/>
-      <div className="mt-4 w-full">
+      <div className="w-full mt-4">
         <LineChart labels={labels} series={series}/>
       </div>
     </div>
   );
 };
 
-export const ProjectWidget = (props) => {
-  const { title, value } = props;
+export const AreaChartWidget = (props) => {
+  const { title, labels, series } = props;
+
   return (
     <div className="shadow-sm">
-        <div className="border-b-2 text-center mb-4">
-          <h3 className="h3 mb-0 text-center">{title}</h3>
-          <h5 className="h5">{value} Projects across 27 LGAs</h5>
-        </div>
-      <div className="">
-        <ProjectChart />
+    	<h5 className="text-center h5">{title}</h5>
+      <hr/>
+      <div className="w-full mt-4">
+        <AreaChart labels={labels} series={series}/>
       </div>
     </div>
   );
 };
+
+export const ProjectWidget = (props) => {
+  const { title, subtitle, heading=true, chartData } = props;
+  return (
+    <div className="shadow-sm">
+      {heading &&
+        <div className="mb-4 text-center border-b-2">
+          <h3 className="mb-0 text-center h3">{title}</h3>
+          <h5 className="h5">{subtitle}</h5>
+        </div>
+      }
+      <div className="">
+        <ProjectChart chartData={chartData}/>
+      </div>
+    </div>
+  );
+};
+
 
 export function MapWidget({ coordinates }){
   const defaultProps = {

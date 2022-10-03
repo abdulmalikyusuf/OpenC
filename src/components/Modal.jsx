@@ -1,7 +1,7 @@
 import { useState, Fragment } from "react";
 import { Transition, Dialog } from "@headlessui/react";
 
-function Modal({ render, onHide, heading }) {
+function Modal({ render, onHide }) {
   let [isOpen, setIsOpen] = useState(true);
 
   function closeModal() {
@@ -38,11 +38,11 @@ function Modal({ render, onHide, heading }) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white dark:bg-gray-700 shadow-xl rounded-2xl">
-                <div className="mt-2">
-                    <h4 className="h4 border-b-2 mb-4">{heading}</h4>
+              <div className="inline-block w-full max-w-xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl dark:bg-gray-700 rounded-2xl">
                     {render(closeModal)}
-                </div>
+                {/* <div className="mt-2">
+                    <h4 className="mb-4 border-b-2 h4">{heading}</h4>
+                </div> */}
               </div>
             </Transition.Child>
           </div>

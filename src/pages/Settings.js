@@ -27,7 +27,7 @@ export default function Settings() {
 				</div>
 				<ChoosePhotoWidget title="Select profile photo" photo={Profile1}/>
 			</div>
-			<div className="col-span-2 bg-white p-5 h-fit">
+			<div className="col-span-2 bg-white dark:bg-gray-700 p-1 md:p-2 lg:p-5 h-fit">
 				<VolunteerTable/>
 			</div>
 		</div>

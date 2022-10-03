@@ -10,7 +10,7 @@ function Volunteer() {
             <h2 className="h2 text-center">Volunteers</h2>
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4 xl:gap-8">
                 {volunteers.map(volunteer => (
-                    <div className="bg-white rounded-lg p-4">
+                    <div className="bg-primary dark:bg-gray-700 text-white dark:text-white text-white dark:text-white rounded-lg p-4">
                         <div className="flex justify-between items-center">
                             <h5 className="h5">
                                 <span className=""><UserCircleIcon className="h-10 w-10 inline-flex mr-4 "/></span>
@@ -25,7 +25,7 @@ function Volunteer() {
                     </div>
                 ))}
             </div>
-            <div className="bg-white p-2 lg:p-5">
+            <div className="bg-white dark:bg-gray-700 p-1 md:p-2 lg:p-5">
                 <VolunteerProjectsTable/>
             </div>
         </div>

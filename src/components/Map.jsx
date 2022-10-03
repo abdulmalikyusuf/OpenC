@@ -3,6 +3,10 @@ import { ComposableMap, Geographies, Geography } from "react-simple-maps"
 
 import topojson from "../data/gadm41_NGA_2.json"
 
+// "transform": {
+//     "scale": [0.036003600360036005, 0.017361589674592462],
+//     "translate": [-180, -89.99892578124998]
+//   },
 
 export default function MapChart() {
     const [tooltip, setToggleTooltip] = React.useState(false)
@@ -31,7 +35,7 @@ export default function MapChart() {
 			</ComposableMap>
 			{
 				tooltip && 
-				<div className='absolute rounded-lg px-4 py-2 bg-primary text-white z-10'>
+				<div className='absolute rounded-lg px-4 py-2 bg-primary dark:bg-gray-900 text-white dark:text-white text-white dark:text-white z-10'>
 					<h6 className="">{currentGrography}</h6>
 				</div>
 			}

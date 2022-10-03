@@ -10,6 +10,7 @@ export const NavigationRoutes = {
     Volunteers: { path: "/volunteers" },
     MoV: { path: "/mov" },
     STIPillars: { path: "/sti-pillars" },
+    Accountability: { path: "/accountability" },
     Settings: { path: "/settings" },
     BootstrapTables: { path: "/tables/bootstrap-tables" },
     Signin: { path: "/" },

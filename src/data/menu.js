@@ -3,9 +3,14 @@ import { ChartPieIcon, DocumentIcon, PaperClipIcon, MapIcon, Cog6ToothIcon, Buil
 
 const menu = [
     {
-        title: "DashboardOverview",
+        title: "Dashboard Overview",
         icon: <ChartPieIcon className="w-6 h-6"/>,
         link: "/home"
+    },
+    {
+        title: "Accountability",
+        icon: <VariableIcon className="w-6 h-6"/>,
+        link: "/accountability"
     },
     {
         title: "Projects",
@@ -13,14 +18,19 @@ const menu = [
         link: "/projects"
     },
     {
+        title: "Report",
+        icon: <PaperClipIcon className="w-6 h-6"/>,
+        link: "/report"
+    },
+    {
         title: "Sites",
         icon: <MapIcon className="w-6 h-6"/>,
         link: "/sites"
     },
     {
-        title: "Report",
-        icon: <PaperClipIcon className="w-6 h-6"/>,
-        link: "/report"
+        title: "STI Pillars",
+        icon: <BuildingLibraryIcon className="w-6 h-6"/>,
+        link: "/sti-pillars"
     },
     {
         title: "Tracked Indicators",
@@ -36,11 +46,6 @@ const menu = [
         title: "MoV",
         icon: <VideoCameraIcon className="w-6 h-6"/>,
         link: "/mov"
-    },
-    {
-        title: "STI Pillars",
-        icon: <BuildingLibraryIcon className="w-6 h-6"/>,
-        link: "/sti-pillars"
     },
     {
         title: "User Settings",

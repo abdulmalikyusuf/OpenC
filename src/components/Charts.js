@@ -28,70 +28,58 @@ ChartJS.register(
 	Legend,
 );
 
-export const ProjectChart = () => {
-  const data = {
-    labels: lgas,
-    datasets: [{
-      label: "Total Number of Projects",
-      data: [45, 26, 32, 75, 1, 22, 72, 72, 28, 65, 19, 6, 66, 49, 44, 87, 33, 47, 23, 98, 36, 84, 96, 42, 82, 51, 23, 66],
-      fill:false,
-      backgroundColor: "#93a5be"//"#8965e0"//"#4c5680"
-    },{
-      label: "Monitored Projects",
-      data: [45, 26, 32, 75, 1, 22, 72, 72, 28, 65, 19, 6, 66, 49, 44, 87, 33, 47, 23, 98, 36, 84, 96, 42, 82, 51, 23, 66].map(number => number-10),
-      fill:false,
-      lineTension: 0.5,
-      backgroundColor: "#4c5680"//"#8965e0"//"#4c5680"
-    },
-  ]
-  };
-  const options = {
-    scales: {
-      y: {
-        min: 0,
-        max: 100,
-        grid: {display: false}
-      },
-      x: {
-        grid: {display: false}
-      }
-    },
-    // animations: {
-    //   tension: {
-    //     duration: 1000,
-    //     easing: 'linear', //easeInOutBounce
-    //     from: 1,
-    //     to: 0,
-    //     loop: true
-    //   }
-    // },
-		responsive: true,
-    plugins: {
-      legend: {
-        position: "top",
-        labels: {
-          pointStyle: "circle",
-          usePointStyle: true,
-          // pointStyleWidth: 10
-        }
-      },
-      title: {
-        display: true,
-        fontSize: 18,
-        position: "top",
-        text: `Total Projects/LGA against Monitored Projects`
-      },
-    },
-    pointBackgroundColor: "black"
-	};
+// "#93a5be"//"#8965e0"//"#4c5680""#4c5680"
 
-  return (
-    <Bar data={data} options={options}/>
-  );
+export const ProjectChart = ({chartData}) => {
+	const data = {
+		labels: chartData.labels,
+		datasets: chartData.data.map(data => {
+			return {
+				label: data.label,
+				data: data.series,
+				fill:false,
+				backgroundColor: data.backgroundColor
+			}
+		})
+	};
+	const options = {
+		scales: {
+		y: {
+			min: 0,
+			max: 100,
+			grid: {display: false}
+		},
+		x: {
+			grid: {display: false}
+		}
+		},
+		responsive: true,
+		plugins: {
+		legend: {
+			position: "top",
+			labels: {
+			pointStyle: "circle",
+			usePointStyle: true,
+			// pointStyleWidth: 10
+			}
+		},
+		title: {
+			display: true,
+			fontSize: 18,
+			position: "top",
+			// text: `Total Projects/LGA against Monitored Projects`
+		},
+		},
+		pointBackgroundColor: "black",
+		};
+
+	return (
+		<Bar data={data} options={options}/>
+	);
 };
 
 
-export const CircleChart = (props) => {
+export const PieChart = (props) => {
   const { series = [], labels=[], colors=[] } = props;
   
   const data = {
@@ -179,3 +167,64 @@ export const LineChart = (props) => {
     <Line data={data} options={options}/>
   );
 };
+
+export const AreaChart = (props) => {
+  const { labels, series, title } = props
+
+  const data = {
+    labels: labels, //.map(label => label.length > 20 ? '...'+label.slice(label.length-20, label.length): label),
+    datasets: [{
+      label: title,
+      data: series,
+      fill: 'origin',
+      borderColor: 'rgb(53, 162, 235)',
+      backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      lineTension: 0.5,
+    },
+  ]
+  };
+
+  return (
+    <Line data={data} options={options}/>
+  );
+};
+
+
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      display: false,
+      position: "bottom"
+    },
+    title: {
+      display: false,
+      fontSize: 18,
+      position: "top",
+      text: `Total Projects/LGA`
+    },
+  },
+  pointBackgroundColor: "black",
+  scales: { 
+    y: {
+      grid: {
+        display: true
+      },
+      ticks: { 
+        callback: (value, index, ticks) => {
+          return value //formatDigits(value)
+          }
+        },
+    x: { 
+      grid: {
+        display: true
+      },
+      ticks: {
+        maxRotation: 80,
+        callback: function(value, index) {
+        const tick = this.getLabelForValue(value)
+        const tickLength = tick.length
+        return tickLength>10 ? '...' + tick.substring(tickLength-10, tickLength): tick
+      }}
+  }}
+}};

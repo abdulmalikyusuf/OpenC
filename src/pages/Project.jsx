@@ -1,21 +1,18 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { FaHome } from 'react-icons/fa';
-
-import {NavigationRoutes} from "../data/routes"
 
 
 function Project() {
 	const { id } = useParams();
 	return (
 		<div>
-      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-        <div className="d-block mb-4 mb-md-0">
+      <div className="flex-wrap py-4 d-flex justify-content-between flex-md-nowrap align-items-center">
+        <div className="mb-4 d-block mb-md-0">
           <h4>Project Name</h4>
           {/* <p className="mb-0">Your web analytics dashboard template.</p> */}
         </div>
       </div>
-			<div border="light" className="table-wrapper table-responsive shadow-sm">
+			<div border="light" className="shadow-sm table-wrapper table-responsive">
 			<div>
 				<h1>Project {id}</h1>
 			</div>

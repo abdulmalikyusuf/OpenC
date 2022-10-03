@@ -46,7 +46,7 @@ export const Tooltip = ({ children, label, placement = "right-start" }) => {
       {open && (
         <div
           ref={floating}
-          className="bg-primary text-white pointer-events-none rounded-lg py-2 px-4 text-sm z-50"
+          className="bg-primary dark:bg-gray-900 text-white dark:text-white text-white dark:text-white pointer-events-none rounded-lg py-2 px-4 text-sm z-50"
           style={{
             position: strategy,
             top: y ?? 0,

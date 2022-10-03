@@ -19,18 +19,19 @@ export function BlankPage() {
 function Template() {
     const { pathname } = useLocation();
 
+
     React.useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }, [pathname]);
-    
+
+
     
 	return (
-        <main className="">
+        <main className="text-black text-white dark:text-white">
             <Sidebar/>
-            <div className={`md:ml-20 bg-gray-100`}>
+            <div className={`md:ml-64 bg-gray-100 dark:bg-gray-900`}>
                 <Navbar/>
-                <div className="px-2 md:px-4 lg:px-10 min-h-screen">
-                {/* //flex justify-center items-center h-screen bg-blue-100 */}
+                <div className="min-h-screen px-2 md:px-4 lg:px-6">
                     <Outlet/>
                 </div>
                 <Footer/>

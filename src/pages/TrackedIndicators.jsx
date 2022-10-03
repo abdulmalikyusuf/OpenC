@@ -9,7 +9,7 @@ import Accordion from "../components/Accordion";
 function TrackedIndicators() {
     
     return (
-        <div className="mt-4 space-y-2 lg:space-y-5">
+        <div className="mt-4 space-y-2 lg:space-y-5 px-10">
             <h2 className="h2 text-center mb-3 lg:mb-5">Tracked Indicators</h2>
             <Accordion heading="Completed Projects">
                 <ul className="list-disc list-inside">

@@ -3,7 +3,7 @@ import React from 'react'
 import { ChevronRightIcon, WifiIcon, BuildingOfficeIcon, MapIcon } from '@heroicons/react/24/outline';
 function HotelCard() {
   return (
-    <div id="app" className="bg-white h-60 rounded shadow-md flex text-grey-darkest">
+    <div id="app" className="bg-white dark:bg-gray-700 h-60 rounded shadow-md flex text-grey-darkest">
         <img className="w-1/2 h-full rounded-l-sm" src={process.env.PUBLIC_URL+"logo512.png"} alt="Room"/>
         <div className="w-full flex flex-col">
             <div className="p-4 pb-0 flex-1">

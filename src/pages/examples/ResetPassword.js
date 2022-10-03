@@ -12,7 +12,7 @@ export default () => {
         <div className="container">
           <div className="justify-content-center">
             <div xs={12} className="d-flex align-items-center justify-content-center">
-              <div className="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+              <div className="bg-white dark:bg-gray-700 shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                 <h3 className="mb-4">Reset password</h3>
               </div>
             </div>

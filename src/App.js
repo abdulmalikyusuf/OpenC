@@ -23,6 +23,8 @@ import ServerError from "./pages/examples/ServerError";
 
 import Template, { BlankPage } from "./pages/Template"
 import { NavigationRoutes } from "./data/routes"
+import Accountability from './pages/Accountability';
+import ColourPreferenceProvider from './_context/ColourPreferenceContext';
 
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
 		document.title = "TrackBorno25"
 	}, [])
   return (
+	<ColourPreferenceProvider>
 		<BrowserRouter>
 			<Routes>
 				<Route element={<Template/>}>
@@ -42,6 +45,7 @@ function App() {
 					<Route path={NavigationRoutes.Volunteers.path} element={<Volunteer/>}/>
 					<Route path={NavigationRoutes.MoV.path} element={<MoV/>}/>
 					<Route path={NavigationRoutes.STIPillars.path} element={<STIPillars/>}/>
+					<Route path={NavigationRoutes.Accountability.path} element={<Accountability/>}/>
 					<Route path={NavigationRoutes.Settings.path} element={<Settings/>}/>
 				</Route>
 
@@ -57,6 +61,7 @@ function App() {
 				<Route path="*" element={<NotFoundPage/>} />
 			</Routes>
 		</BrowserRouter>
+	</ColourPreferenceProvider>
   )
 }
 

@@ -18,7 +18,7 @@ export default function NotFound() {
                 <a href={NavigationRoutes.DashboardOverview.path}>
                   <img src={NotFoundImage} className="img-fluid w-75" />
                 </a>
-                <h1 className="text-primary mt-5">
+                <h1 className="text-primary text-white dark:text-white mt-5">
                   Page not <span className="fw-bolder">found</span>
                 </h1>
                 <p className="lead my-4">

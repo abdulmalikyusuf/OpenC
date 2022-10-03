@@ -6,10 +6,10 @@
 
 @layer base {
     .btn {
-        @apply flex items-center space-x-6 mt-6 bg-accent text-white rounded-full px-6 py-2 lg:py-4 lg:font-medium text-sm lg:text-lg lg:leading-[27px] text-center;
+        @apply flex items-center space-x-6 mt-6 bg-accent text-white dark:text-gray-500 rounded-full px-6 py-2 lg:py-4 lg:font-medium text-sm lg:text-lg lg:leading-[27px] text-center;
     }
     .btn-primary {
-        @apply bg-primary px-12 py-2 text-white font-medium rounded-lg hover:opacity-40
+        @apply bg-primary dark:bg-gray-900 px-12 py-2 text-white dark:text-gray-500 font-medium rounded-lg hover:opacity-40
     }
     .h1 {
         @apply text-lg md:text-2xl lg:text-4xl xl:text-5xl font-semibold lg:font-bold

@@ -8,14 +8,16 @@ import { ProjectsTable } from "../components/Tables";
 import Modal from "../components/Modal"
 import ProjectForm from "../components/ProjectForm";
 import DeleteProject from "../components/DeleteProject";
+import ActivityForm from "../components/ActivityForm";
 
 export default function Projects() {
 	const [showProjectModal, setShowProjectModal] = React.useState(false);
+	const [showActivityModal, setActivityModal] = React.useState(false);
 	const [showDeleteModal, setShowDeleteModal] = React.useState(false);
 
 	const menu = [
-		{ title: "Project", icon: <BuildingOfficeIcon className="mr-2 h-5 w-5"/>,  handleClick: ()=>setShowProjectModal(prev => !prev) },
-		{ title: "Volunter", icon: <UserIcon className="mr-2 h-5 w-5"/>,  handleClick: ()=>setShowProjectModal(prev => !prev) }
+		{ title: "Project", icon: <BuildingOfficeIcon className="w-5 h-5 mr-2"/>,  handleClick: ()=>setShowProjectModal(prev => !prev) },
+		{ title: "Activity", icon: <UserIcon className="w-5 h-5 mr-2"/>,  handleClick: ()=>setActivityModal(prev => !prev) }
 	]
 
 	return (
@@ -24,14 +26,14 @@ export default function Projects() {
 				<nav className="flex mb-5" aria-label="Breadcrumb">
 					<ol className="inline-flex items-center space-x-1 md:space-x-2">
 						<li className="inline-flex items-center">
-							<Link to="/" className="text-gray-400 text-sm font-medium hover:text-gray-900 inline-flex items-center">
+							<Link to="/" className="inline-flex items-center text-sm font-medium text-gray-400 hover:text-gray-900">
 								<HomeIcon className="w-5 h-5 mr-2.5"/>Home
 							</Link>
 						</li>
 						<li>
 							<div className="flex items-center">
 								<ChevronRightIcon className="w-6 h-6 text-gray-400"/>
-								<Link to="/projects" className="text-black hover:text-gray-900 ml-1 md:ml-2 text-sm font-medium">
+								<Link to="/projects" className="ml-1 text-sm font-medium text-black hover:text-gray-900 md:ml-2">
 									Project
 								</Link>
 							</div>
@@ -40,7 +42,7 @@ export default function Projects() {
 							<div className="flex items-center">
 								<ChevronRightIcon className="w-6 h-6 text-gray-400"/>
 								<Link to={`/projects`}
-									className="text-gray-700 hover:text-gray-900 ml-1 md:ml-2 text-sm font-medium">
+									className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2">
 									Project 1
 								</Link>
 							</div>
@@ -53,9 +55,9 @@ export default function Projects() {
 						<label htmlFor="projects-search" className="sr-only">
 							Search
 						</label>
-						<div className="flex bg-gray-50 border border-gray-300 text-gray-900 pl-3 rounded-lg">
-							<MagnifyingGlassIcon onClick={()=>{}} className="h-5 w-5 my-auto"/>
-							<input type="text" name="project" id="project-search" className="bg-gray-50 border-0 outline-none focus:ring-0 mr-2 w-72 lg:w-80" placeholder="Search for project"/>
+						<div className="flex pl-3 text-gray-900 border border-gray-300 rounded-lg bg-gray-50">
+							<MagnifyingGlassIcon onClick={()=>{}} className="w-5 h-5 my-auto"/>
+							<input type="text" name="project" id="project-search" className="mr-2 border-0 outline-none bg-gray-50 focus:ring-0 lg:w-80" placeholder="Search for project"/>
 						</div>
 					</form>
 					<DropdownMenu label="New" options={menu}/>
@@ -64,7 +66,8 @@ export default function Projects() {
 		<ProjectsTable toggleProjectModal={setShowProjectModal} deleteProjectModal={setShowDeleteModal}/>
 
 
-		{showProjectModal && <Modal heading="Create new Project" onHide={() => setShowProjectModal(false)} render={() => (<ProjectForm /> )}/>}
+		{showProjectModal && <Modal onHide={() => setShowProjectModal(false)} render={() => (<ProjectForm onClose={()=>setShowProjectModal(false)}/> )}/>}
+		{showActivityModal && <Modal onHide={() => setActivityModal(false)} render={() => (<ActivityForm onClose={()=>setShowProjectModal(false)}/> )}/>}
 		{showDeleteModal && <Modal onHide={() => setShowDeleteModal(false)} render={() => (<DeleteProject /> )}/>}
 		</div>
 	);

@@ -8,7 +8,7 @@ export default function ForgotPassword() {
         <div className="container">
           <div className="justify-content-center">
             <div xs={12} className="d-flex align-items-center justify-content-center">
-              <div className="signin-inner my-3 my-lg-0 bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+              <div className="signin-inner my-3 my-lg-0 bg-white dark:bg-gray-700 shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                 <h3>Forgot your password?</h3>
                 <p className="mb-4">Don't fret! Just type in your email and we will send you a code to reset your password!</p>
                 <form>

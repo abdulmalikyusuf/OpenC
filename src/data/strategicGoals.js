@@ -1,5 +1,6 @@
 export const strategicGoals = [
     {
+        code: "HCD",
         pillar: "Human Capital Development",
         goals: `Effect adequate and equal access to free and compulsory education up to senior secondary school or equivalent for all children
         Promote access to education, vocational training and life-long development through proximity of secured and equipped learning facilities and e-learning solutions.
@@ -13,6 +14,7 @@ export const strategicGoals = [
         `.split("\n")
     },
     {
+        code: "LAG",
         pillar: "Leadership in Agriculture",
         goals: `Enhance the quality and volume of agriculture produce to enhance positioning in the country and among the Lake Chad border countries.
         Adopt a Hub & Spoke approach in developing each agriculture value-chain to leverage the competitive advantage of each region of the State, ensure security of the value chain, foster deep expertise and faster creation of secured and far reaching eco-systems.
@@ -31,6 +33,7 @@ export const strategicGoals = [
         `.split("\n")
     },
     {
+        code: "H",
         pillar: "Healthy Citizenry",
         goals: `Increase quality and equipped healthcare professional per capita by 75%
         Provide one functional Primary Health Care per ward with all the components of the extension and referral services that provide Basic Health Care Services under one roof to reduce maternal and child mortality and morbidity by at least 50% and improve immunization coverage of all under-five children to at least 90%.
@@ -43,6 +46,7 @@ export const strategicGoals = [
         `.split("\n")
     },
     {
+        code: "E",
         pillar: "Sustainable Environment",
         goals: `Protect, restore and promote use of terrestrial ecosystems, sustainably manage forests, combat desertification and halt and reverse land degradation and biodiversity loss.
         Conserve and sustainably use the lakes, rivers and marine resources for sustainable development.
@@ -59,6 +63,7 @@ export const strategicGoals = [
         `.split("\n")
     },
     {
+        code: "TB",
         pillar: "Regional Trade Hub",
         goals: `Adopt policies and structures, supported with activated and deliberate investment promotion to improve ease of doing business 
         Leverage PPP structure and business attracting incentives to attract and sustain private sector participation to establish, resuscitate current facilities, grow and expand key sectors in commerce, trade, manufacturing and agriculture.
@@ -71,6 +76,7 @@ export const strategicGoals = [
         `.split("\n")
     },
     {
+        code: "RRR",
         pillar: "Reconstruction, Rehabilitation and Resettlement",
         goals: `Facilitate the reconstruction and rehabilitation of destroyed homes and communities.
         Adopt traditional construction methods to build modern and eco-living affordable homesteads and communities faster.
@@ -81,6 +87,7 @@ export const strategicGoals = [
         `.split("\n")
     },
     {
+        code: "PI",
         pillar: "Purposeful Infrastructure",
         goals: `Determine and prioritise for execution the key infrastructure for economic connectivity, agriculture, health and human capital development.
         Build, repair, maintain and sustain good quality road networks created to connect all rural areas and LGAs to Maiduguri to enhance agri-business and commerce.
@@ -94,6 +101,7 @@ export const strategicGoals = [
         `.split("\n")
     },
     {
+        code: "AG",
         pillar: "Accountable Governance",
         goals: `Ensure the alignment of State Development & Sectoral Plans, as well as all MDAs and LGAs to the strategic pillars and goals of the State. This includes the prioritisation of their activities, projects and budget to those actions that deliver the stated strategic objectives.
         Ensure accountable, transparent & purposeful budget aligned to the strategy and implemented for measurable outcomes

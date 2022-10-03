@@ -20,7 +20,7 @@ export default function Lock() {
         <div className="container">
           <div className="justify-content-center form-bg-image" style={{ backgroundImage: `url(${BgImage})` }}>
             <div xs={12} className="d-flex align-items-center justify-content-center">
-              <div className="bg-white shadow-soft border border-light rounded p-4 p-lg-5 w-100 fmxw-500">
+              <div className="bg-white dark:bg-gray-700 shadow-soft border border-light rounded p-4 p-lg-5 w-100 fmxw-500">
                 <div className="text-center text-md-center mb-4 mt-md-0">
                   <div className="user-avatar large-avatar mx-auto mb-3 border-dark p-2">
                     <img src={Profile1} className="rounded-circle" />

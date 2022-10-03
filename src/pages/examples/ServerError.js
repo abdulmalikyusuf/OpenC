@@ -13,7 +13,7 @@ export default function ServerError() {
         <div className="container">
           <div className="align-items-center">
             <div xs={12} lg={5} className="order-2 order-lg-1 text-center text-lg-left">
-              <h1 className="text-primary mt-5">
+              <h1 className="text-primary text-white dark:text-white mt-5">
                 Something has gone <span className="fw-bolder">seriously</span> wrong
           </h1>
               <p className="lead my-4">

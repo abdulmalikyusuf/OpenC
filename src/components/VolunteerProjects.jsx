@@ -29,22 +29,22 @@ function VolunteerProjectsTable() {
 			<div className="overflow-x-auto">
 				<div className="align-middle inline-block min-w-full">
 					<div className="shadow overflow-hidden">
-						<table className="table-fixed min-w-full divide-y divide-gray-200 dark:divide-gray-500">
-							<thead className="bg-gray-100 dark:bg-gray-800">
+						<table className="table-fixed min-w-full divide-y divide-gray-200">
+							<thead className="bg-gray-100 dark:bg-gray-500 text-gray-500 text-white dark:text-white">
 								<tr>
 									<th scope="col" className="p-4">#</th>
-									<th scope="col" className="p-4 text-left text-xs font-medium text-gray-500 uppercase">
+									<th scope="col" className="p-4 text-left text-xs font-medium uppercase">
 									Project
 									</th>
-									<th scope="col" className="p-4 text-left text-xs font-medium text-gray-500 uppercase">
+									<th scope="col" className="p-4 text-left text-xs font-medium uppercase">
 									Tracked by
 									</th>
-									<th scope="col" className="p-4 text-left text-xs font-medium text-gray-500 uppercase">
+									<th scope="col" className="p-4 text-left text-xs font-medium uppercase">
 									Action
 									</th>
 								</tr>
 							</thead>
-							<tbody className="bg-white dark:bg-gray-700 divide-y divide-gray-200 dark:divide-gray-500">
+							<tbody className="bg-white dark:bg-gray-700 divide-y divide-gray-200">
 								{volunteers.map((volunteer, idx) => <TableRow key={idx} index={idx+1} {...volunteer}/>)}
 							</tbody>
 						</table>
