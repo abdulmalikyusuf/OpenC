@@ -25,6 +25,8 @@ import Template, { BlankPage } from "./pages/Template"
 import { NavigationRoutes } from "./data/routes"
 import Accountability from './pages/Accountability';
 import ColourPreferenceProvider from './_context/ColourPreferenceContext';
+import HomePage from './pages/examples/HomePage';
+import PProjects from './pages/PProjects';
 
 document.title = "OpenC"
 
@@ -33,6 +35,9 @@ function App() {
 	<ColourPreferenceProvider>
 		<BrowserRouter>
 			<Routes>
+				<Route element={<HomePage/>}>
+					<Route path="/" element={<PProjects/>} />
+				</Route>
 				<Route element={<Template/>}>
 					<Route path={NavigationRoutes.DashboardOverview.path} element={<DashboardOverview/>}/>
 					<Route path={NavigationRoutes.Projects.path} element={<Projects/>}/>
