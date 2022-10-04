@@ -26,11 +26,9 @@ import { NavigationRoutes } from "./data/routes"
 import Accountability from './pages/Accountability';
 import ColourPreferenceProvider from './_context/ColourPreferenceContext';
 
+document.title = "OpenC"
 
 function App() {
-	React.useEffect(()=> {
-		document.title = "TrackBorno25"
-	}, [])
   return (
 	<ColourPreferenceProvider>
 		<BrowserRouter>
@@ -41,10 +39,9 @@ function App() {
 					<Route path={NavigationRoutes.Sites.path} element={<Sites/>}/>
 					<Route path={NavigationRoutes.Report.path} element={<Report/>}/>
 					<Route path={NavigationRoutes.Project.path} element={<Project/>}/>
-					<Route path={NavigationRoutes.TrackedIndicators.path} element={<TrackedIndicators/>}/>
+					<Route path={NavigationRoutes.RedFlags.path} element={<TrackedIndicators/>}/>
 					<Route path={NavigationRoutes.Volunteers.path} element={<Volunteer/>}/>
 					<Route path={NavigationRoutes.MoV.path} element={<MoV/>}/>
-					<Route path={NavigationRoutes.STIPillars.path} element={<STIPillars/>}/>
 					<Route path={NavigationRoutes.Accountability.path} element={<Accountability/>}/>
 					<Route path={NavigationRoutes.Settings.path} element={<Settings/>}/>
 				</Route>

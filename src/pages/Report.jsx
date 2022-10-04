@@ -44,7 +44,7 @@ function Report() {
 				    <ProjectWidget title="Projects across LGAs" heading={false} subtitle={"10,578 Projects across 27 LGAs"} chartData={projectData}/>
                 </div>
                 <div className="p-2 bg-white shadow-sm dark:bg-gray-700 md:p-4 rounded-xl">
-                    <PieChartWidget title="Projects by Themantic Pillars" {...themanticSectors} />
+                    <PieChartWidget title="Projects by Sector" {...themanticSectors} />
                 </div>
             </div>
 		</div>

@@ -6,7 +6,7 @@ export const NavigationRoutes = {
     Sites: { path: "/sites" },
     Report: { path: "/report" },
     Project: { path: "/projects/:id" },
-    TrackedIndicators: { path: "/tracked-indicators" },
+    RedFlags: { path: "/red-flags" },
     Volunteers: { path: "/volunteers" },
     MoV: { path: "/mov" },
     STIPillars: { path: "/sti-pillars" },

@@ -1,5 +1,5 @@
 import { UserGroupIcon } from "@heroicons/react/20/solid";
-import { ChartPieIcon, DocumentIcon, PaperClipIcon, MapIcon, Cog6ToothIcon, BuildingLibraryIcon, ViewColumnsIcon, VideoCameraIcon, VariableIcon } from "@heroicons/react/24/outline"
+import { ChartPieIcon, BuildingOffice2Icon, DocumentIcon, PaperClipIcon, MapIcon, Cog6ToothIcon, FlagIcon, VideoCameraIcon, VariableIcon } from "@heroicons/react/24/outline"
 
 const menu = [
     {
@@ -13,8 +13,8 @@ const menu = [
         link: "/accountability"
     },
     {
-        title: "Projects",
-        icon: <DocumentIcon className="w-6 h-6"/>,
+        title: "Contracts",
+        icon: <BuildingOffice2Icon className="w-6 h-6"/>,
         link: "/projects"
     },
     {
@@ -28,14 +28,9 @@ const menu = [
         link: "/sites"
     },
     {
-        title: "STI Pillars",
-        icon: <BuildingLibraryIcon className="w-6 h-6"/>,
-        link: "/sti-pillars"
-    },
-    {
-        title: "Tracked Indicators",
-        icon: <ViewColumnsIcon className="w-6 h-6"/>,
-        link: "/tracked-indicators"
+        title: "Red Flags",
+        icon: <FlagIcon className="w-6 h-6"/>,
+        link: "/red-flags"
     },
     {
         title: "Volunteers",

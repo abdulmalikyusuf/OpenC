@@ -54,7 +54,7 @@ export const CardWidget = (props) => {
   const { icon, title, value} = props;
 
 	return (
-		<div className="h-full p-8 bg-white rounded-lg shadow-md dark:bg-gray-700 md:p-4">
+		<div className="h-full p-8 bg-white rounded-lg shadow-md dark:bg-gray-700 md:p-8">
 			<div className="items-center justify-between xl:flex">
 				<div className="flex items-center xl:w-1/3">
 					<div className="rounded">{icon}</div>

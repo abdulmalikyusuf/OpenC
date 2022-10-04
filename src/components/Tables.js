@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, } from "react-router-dom";
-import { EllipsisHorizontalIcon } from '@heroicons/react/24/outline'
+import { EllipsisHorizontalIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
 import { EyeIcon, PencilSquareIcon, TrashIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 import {
@@ -74,19 +74,19 @@ export const ProjectsTable = ({ toggleProjectModal, deleteProjectModal }) => {
 								<tr>
 									<th scope="col" className="p-4">#</th>
 									<th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
-									Basis of Project
+									Contract Title
 									</th>
 									<th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
-									Project Name
+									Contract Description
 									</th>
 									<th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
 									Themantic Sector
 									</th>
 									<th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
-									SDP Pillar
+									Contractor
 									</th>
 									<th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
-									STI Code
+									Date Awarded
 									</th>
 									<th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
 									Action
@@ -147,25 +147,18 @@ function Dropdown() {
 				</button>
 				<button type="button" className="flex items-center w-full p-2 px-4 space-x-2 hover:bg-gray-200 hover:text-primary">
 					<span><PencilSquareIcon className="w-5 h-5"/></span>
-					<span>Edit Project</span>
+					<span>Edit Contract</span>
 				</button>
 				<button type="button" className="flex items-center w-full p-2 px-4 space-x-2 hover:bg-gray-200 hover:text-primary">
-					<span><EyeIcon className="w-5 h-5"/></span>
-					<span>Suspend Project</span>
+					<span><EyeSlashIcon className="w-5 h-5"/></span>
+					<span>Suspend Contract</span>
 				</button>
 				<button type="button" className="flex items-center w-full p-2 px-4 space-x-2 hover:bg-gray-200 hover:text-primary">
 					<span><TrashIcon className="w-5 h-5"/></span>
-					<span>Delete Project</span>
+					<span>Delete Contract</span>
 				</button>
 			</div>
 			}
 		</div>
-
 	)
 }
-
-// ACTION
-// Edit
-// View
-// Suspend
-// Delete

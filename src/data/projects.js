@@ -2,11 +2,11 @@ import { lgas } from "./lgas"
 
 export const projects = [
     {
-        basisOfProject: "The project is …...",
-        projectName: "Increasing acess to edcuation for Adolescent girls in Borno State",
-        themanticSector: "Education",
-        sdpPillar: "Healthy Citizenry",
-        stiCode: "HCD 4"
+        basisOfProject: "Construction of drainage",
+        projectName: "Construction of drainage to prevent flooding in LGA 1",
+        themanticSector: "Infrastructure",
+        sdpPillar: "ABC Construction Inc.",
+        stiCode: new Date().toLocaleDateString()
     }
 ]
 
