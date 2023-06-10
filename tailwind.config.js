@@ -5,7 +5,9 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {
+    extend: {fontFamily: {
+      "exo": ["Exo 2", "sans-serif"],
+    },
       colors: {
         // main: { "50": "#eff6ff", "100": "#dbeafe", "200": "#bfdbfe", "300": "#93c5fd", "400": "#60a5fa", "500": "#3b82f6", "600": "#2563eb", "700": "#1d4ed8", "800": "#1e40af", "900": "#1e3a8a" }
         'royal-blue': '#3671E9',
@@ -21,9 +23,16 @@ module.exports = {
         'darkBlue': '#4610AD',
         'gradientStart': 'rgba(255, 255, 255, 0.16)',
         'gradientStop': 'rgba(255, 255, 255, 0)',
-      },
-      fontFamily: {
-        'Rubik': ['Rubik', 'sans-serif'],
+        
+        "brand-green": "#00856F",
+				"brand-green-light": "#DCE9E2",
+				"brand-green-light-02": "#F7F9F9",
+				"brand-beige": "#FFFAF1",
+				"brand-green-hover": "#00453A",
+
+				"gray-headline": "#061800",
+				"gray-paragraph": "#384633",
+				"sec-white": "#3E3E3E",
       },
       spacing: {
         '120': '120px',

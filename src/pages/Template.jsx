@@ -27,7 +27,7 @@ function Template() {
 
     
 	return (
-        <main className="text-black text-white dark:text-white">
+        <main className="text-black dark:text-white">
             <Sidebar/>
             <div className={`md:ml-64 bg-gray-100 dark:bg-gray-900`}>
                 <Navbar/>

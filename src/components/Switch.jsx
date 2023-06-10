@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch } from '@headlessui/react'
 import { MoonIcon, SunIcon } from '@heroicons/react/24/outline'
-import { ColourPreferenceContext } from '../_context/ColourPreferenceContext'
+import { ColourPreferenceContext } from '../_contexts/ColourPreferenceContext'
 
 
 export default function ToggleNightMode() {
@@ -20,7 +20,7 @@ export default function ToggleNightMode() {
                 aria-hidden="true"
                 className={`${lightMode ? 'translate-x-9 bg-gray-700 text-gray-500' : 'translate-x-0 bg-white text-primary'}
                     pointer-events-none flex items-center justify-center h-[34px] w-[34px] transform rounded-full shadow-lg ring-0 transition duration-200 ease-in-out`}>
-                        {lightMode ? <MoonIcon className='h-6 w-6 '/> : <SunIcon className='h-6 w-6'/>}
+                        {lightMode ? <MoonIcon className='w-6 h-6 '/> : <SunIcon className='w-6 h-6'/>}
                 </span>
             </>
         )}

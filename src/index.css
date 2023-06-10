@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 @layer base {
+    * {
+        @apply font-exo
+    }
     .btn {
         @apply flex items-center space-x-6 mt-6 bg-accent text-white dark:text-gray-500 rounded-full px-6 py-2 lg:py-4 lg:font-medium text-sm lg:text-lg lg:leading-[27px] text-center;
     }

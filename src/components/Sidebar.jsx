@@ -1,7 +1,7 @@
 import React from 'react'
 import { LockClosedIcon, XMarkIcon, Bars3Icon } from '@heroicons/react/24/outline'
 import { Popover, Transition } from '@headlessui/react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, Link } from 'react-router-dom'
 
 import menu from '../data/menu' 
 
@@ -13,7 +13,10 @@ function Sidebar() {
             <>
                 <div className="fixed top-0 left-0 z-30 hidden w-64 h-full min-h-screen px-10 overflow-hidden text-white transition-all duration-300 pointer-events-auto md:block bg-primary dark:bg-gray-900 dark:text-white">
                     <div className="mt-4">
-                        <h1 className={`text-2xl font-bold mb-10`}>OpenC</h1>
+                        <Link to="/" className="flex items-center justify-center mb-4 -ml-8 space-x-2">
+                            <img src={process.env.PUBLIC_URL+"Logo.png"} alt="OpenC Logo" className="h-14"/>
+                            <h2 className="text-3xl font-bold leading-none">OpenC</h2>
+                        </Link>
                         <nav className="space-y-4 text-sm">
                             {menu.map((item, idx) => (
                                 <NavLink to={item.link} key={item.title} className={({ isActive }) => `-mx-2 pl-2 block ${isActive && "bg-opacity-90 border-l-4 border-blue-800 text-white dark:text-white" } hover:text-white dark:text-white hover:bg-opacity-90 hover:border-l-4 hover:border-blue-800`}>

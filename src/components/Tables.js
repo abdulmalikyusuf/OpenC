@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate, } from "react-router-dom";
-import { EllipsisHorizontalIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
+import { EllipsisHorizontalIcon, EyeSlashIcon, FlagIcon } from '@heroicons/react/24/outline'
 import { EyeIcon, PencilSquareIcon, TrashIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 import {
@@ -14,11 +14,13 @@ import {
 } from "@floating-ui/react-dom-interactions"
 
 import { NavigationRoutes } from "../data/routes";
-import { projects } from "../data/projects";
+import { ProjectsContext } from "../_contexts/ProjectsContext";
+import { currencyFormat } from "../utilities/parseProjectData";
 
 
 
 export const ProjectsTable = ({ toggleProjectModal, deleteProjectModal }) => {
+	const {projects} = useContext(ProjectsContext)
 	const navigate = useNavigate()
 	const totalProjects = projects.length;
 	const menu = [
@@ -28,29 +30,30 @@ export const ProjectsTable = ({ toggleProjectModal, deleteProjectModal }) => {
 	]
 
   const TableRow = (props) => {
-    const { index, basisOfProject, projectName, themanticSector, sdpPillar, stiCode } = props;
+    const { title, budgetAmount, contractAmount, contractor, lga, mda, index } = props;
 
     return (
       	<tr className="">
-			<td className="p-4 text-sm font-normal text-gray-500 whitespace-nowrap">
+			<td className="px-2 text-sm font-normal text-gray-500 md:p-2 lg:p-4 whitespace-wrap">
 				<Link to={NavigationRoutes.Projects.path} className="font-medium">
 					{index+1}
 				</Link>
 			</td>
-			<td className="p-4 text-base font-medium text-gray-900 whitespace-nowrap">
-				{basisOfProject}
+			<td className="px-2 text-base font-medium text-gray-900 md:p-2 lg:p-4 whitespace-wrap">
+				{title}
 			</td>
-			<td className="p-4 text-base font-medium text-gray-900 whitespace-nowrap">
-				{projectName}
+			<td className="px-2 text-base font-medium text-gray-900 md:p-2 lg:p-4 whitespace-wrap">
+				{currencyFormat(budgetAmount)}
 			</td>
-			<td className="p-4 text-base font-medium text-gray-900 whitespace-nowrap">
-				{themanticSector}
+			<td className="px-2 text-base font-medium text-gray-900 md:p-2 lg:p-4 whitespace-wrap">
+				{currencyFormat(contractAmount)}
 			</td>
-			<td className="p-4 text-base font-medium text-gray-900 whitespace-nowrap">
-				{sdpPillar}
+			<td className="px-2 text-base font-medium text-gray-900 md:p-2 lg:p-4 whitespace-wrap">
+				{contractor}
 			</td>
-			<td className="p-4 space-x-2 whitespace-nowrap">{stiCode}</td>
-			<td className="p-4 space-x-2 whitespace-nowrap">
+			<td className="px-2 space-x-2 md:p-2 lg:p-4 whitespace-wrap">{lga}</td>
+			<td className="px-2 space-x-2 md:p-2 lg:p-4 whitespace-wrap">{mda}</td>
+			<td className="px-2 space-x-2 md:p-2 lg:p-4 whitespace-wrap">
 				{/* <EllipsisHorizontalIcon className="w-8"/> */}
 				<Dropdown/>
 			</td>
@@ -77,16 +80,19 @@ export const ProjectsTable = ({ toggleProjectModal, deleteProjectModal }) => {
 									Contract Title
 									</th>
 									<th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
-									Contract Description
+									Budgeted Amount
 									</th>
 									<th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
-									Themantic Sector
+									Contract Amount
 									</th>
 									<th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
 									Contractor
 									</th>
 									<th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
-									Date Awarded
+									LGA
+									</th>
+									<th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
+									MDA
 									</th>
 									<th scope="col" className="p-4 text-xs font-medium text-left text-gray-500 uppercase">
 									Action
@@ -135,9 +141,8 @@ function Dropdown() {
 		<div className="">
 			<EllipsisHorizontalIcon className="w-8 cursor-pointer" ref={reference} {...getReferenceProps()}/>
 			{open && 
-			<div ref={floating} {...getFloatingProps} className={`${strategy} top-[582px] left-[331px] bg-white py-1 w-44 rounded-lg font-medium text-gray-500 border border-gray-500`}
+			<div ref={floating} {...getFloatingProps} className={`${strategy} bg-white py-1 w-fit whitespace-nowrap rounded-lg font-medium text-gray-500 border border-gray-500`}
 			style={{
-				position: strategy,
 				left: x ?? 0,
 				top: y ?? 0,
 			}}>
@@ -145,17 +150,9 @@ function Dropdown() {
 					<span><EyeIcon className="w-5 h-5"/></span>
 					<span>View Details</span>
 				</button>
-				<button type="button" className="flex items-center w-full p-2 px-4 space-x-2 hover:bg-gray-200 hover:text-primary">
-					<span><PencilSquareIcon className="w-5 h-5"/></span>
-					<span>Edit Contract</span>
-				</button>
-				<button type="button" className="flex items-center w-full p-2 px-4 space-x-2 hover:bg-gray-200 hover:text-primary">
-					<span><EyeSlashIcon className="w-5 h-5"/></span>
-					<span>Suspend Contract</span>
-				</button>
-				<button type="button" className="flex items-center w-full p-2 px-4 space-x-2 hover:bg-gray-200 hover:text-primary">
-					<span><TrashIcon className="w-5 h-5"/></span>
-					<span>Delete Contract</span>
+				<button type="button" className="flex items-center w-full p-2 px-4 space-x-2 text-red-500 hover:bg-gray-200">
+					<span><FlagIcon className="w-5 h-5 fill-red-500"/></span>
+					<span>Raise Red Flag</span>
 				</button>
 			</div>
 			}

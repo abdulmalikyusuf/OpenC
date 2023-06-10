@@ -19,7 +19,7 @@ export const ProfileCardWidget = () => {
         <div className="text-center">
           <h5 className="h5">Admin User</h5>
           <h6 className="h6">Project Supervisor</h6>
-          <p className="font-thin">Borno, Nigeria</p>
+          <p className="font-thin">Plateau, Nigeria</p>
         </div>
       </div>
     </div>

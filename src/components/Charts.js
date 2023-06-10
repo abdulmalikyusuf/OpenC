@@ -14,7 +14,7 @@ import {
 	Legend,
 } from "chart.js";
 
-import { lgas } from "../data/lgas"
+import { lgas } from "../data/lgasD"
 
 ChartJS.register(
 	CategoryScale,

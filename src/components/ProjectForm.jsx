@@ -4,9 +4,6 @@ import Datetime from "react-datetime";
 import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 import "react-datetime/css/react-datetime.css";
 
-import SDPPillars from '../data/SDPPillars';
-import stiCodes from '../data/stiCodes';
-
 
 function ProjectForm() {
 	const [startDate, setStartDate] = useState("")
@@ -31,30 +28,7 @@ function ProjectForm() {
 					<option value="2">Empowernment</option>
 					</select>
 				</div>
-				<div className="">
-					<label htmlFor="" className="font-medium dark:text-white">SDP Pillar</label>
-					<select defaultValue="0" className="w-full text-sm rounded-lg dark:text-white placeholder:dark:text-gray-500 dark:bg-gray-400 placeholder:font-medium placeholder:text-sm">
-						{SDPPillars.map(pillar => (
-							<option key={pillar.code} value={pillar.code}>{pillar.title}</option>
-						))}
-					</select>
-				</div>
-				<div className="col-span-full">
-					<label htmlFor="" className="font-medium dark:text-white">STI Code</label>
-					<select defaultValue="0"className="w-full text-sm rounded-lg dark:text-white placeholder:dark:text-gray-500 dark:bg-gray-400 placeholder:font-medium placeholder:text-sm">
-						{stiCodes.map(sti => (
-							<option key={sti.code} value={sti.code}>{`${sti.code}: ${sti.title}`}</option>
-						))}
-					</select>
-				</div>
-				<div className="col-span-full">
-					<label htmlFor="" className="font-medium dark:text-white">STI Activity</label>
-					<select defaultValue="0"className="w-full text-sm rounded-lg dark:text-white placeholder:dark:text-gray-500 dark:bg-gray-400 placeholder:font-medium placeholder:text-sm">
-						{stiCodes.map(sti => (
-							<option key={sti.code} value={sti.code}>{`${sti.code}: ${sti.title}`}</option>
-						))}
-					</select>
-				</div>
+				
 				<div className="col-span-full">
 					<label htmlFor="" className="font-medium dark:text-white">Site Name (community and ward)</label>
 					<input required type="text" placeholder="Shuwari garke" className="w-full text-sm rounded-lg dark:text-white placeholder:dark:text-gray-500 dark:bg-gray-400 placeholder:font-medium placeholder:text-sm"/>

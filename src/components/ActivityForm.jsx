@@ -6,10 +6,6 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { string, object } from "yup"
 
-import SDPPillars from '../data/SDPPillars';
-import stiCodes from '../data/stiCodes';
-
-
 const pages = [
 	{pageNumber: 1, element: Details},
 	{pageNumber: 2, element: FormOne},
@@ -117,46 +113,7 @@ function Details({ formdata, handleChange, register, formErrors }) {
 			</select>
 			<p className="text-xs text-red-500">{thematic_sector?.message}</p>
 		</div>
-		<div className="">
-			<label htmlFor="" className="font-medium">SDP Pillar</label>
-			<select {...register("sdp_pillar")} className={`${sdp_pillar&&"border-red-500 focus:border-red-500 focus:ring-red-500"} w-full text-sm rounded-lg placeholder:font-medium placeholder:text-sm`}>
-				<option value=""></option>
-				{SDPPillars.map(pillar => (
-					<option key={pillar.code} value={pillar.code}>{pillar.title}</option>
-				))}
-			</select>
-			<p className="text-xs text-red-500">{sdp_pillar?.message}</p>
-		</div>
-		<div className="col-span-full">
-			<label htmlFor="" className="font-medium">STI Code</label>
-			<select {...register("sti_code")} onChange={handleChange} className={`${sti_code&&"border-red-500 focus:border-red-500 focus:ring-red-500"} w-full text-sm rounded-lg placeholder:font-medium placeholder:text-sm`}>
-				<option value=""></option>
-				{stiCodes.map(sti => (
-					<option key={sti.code} value={sti.code}>{`${sti.code}: ${sti.title}`}</option>
-				))}
-			</select>
-			<p className="text-xs text-red-500">{sti_code?.message}</p>
-		</div>
-		<div className="col-span-full">
-			<label htmlFor="" className="font-medium">Indicator</label>
-			<select {...register("indicator")} className={`${indicator&&"border-red-500 focus:border-red-500 focus:ring-red-500"} w-full text-sm rounded-lg placeholder:font-medium placeholder:text-sm`}>
-				<option value=""></option>
-				{stiCodes[0].activities.map(sti => (
-					<option key={sti.code} value={sti.code}>{`${sti.code}: ${sti.title}`}</option>
-				))}
-			</select>
-			<p className="text-xs text-red-500">{indicator?.message}</p>
-		</div>
-		<div className="col-span-full">
-			<label htmlFor="" className="font-medium">Activity</label>
-			<select {...register("activity")} className={`${activity&&"border-red-500 focus:border-red-500 focus:ring-red-500"} w-full text-sm rounded-lg placeholder:font-medium placeholder:text-sm`}>
-				<option value=""></option>
-				{stiCodes[0].activities.map(activity => (
-					<option key={activity.code} value={activity.code}>{`${activity.code}: ${activity.title}`}</option>
-				))}
-			</select>
-			<p className="text-xs text-red-500">{activity?.message}</p>
-		</div>
+		
 	</>
   )
 }

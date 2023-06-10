@@ -34,7 +34,7 @@ export default function Projects() {
 							<div className="flex items-center">
 								<ChevronRightIcon className="w-6 h-6 text-gray-400"/>
 								<Link to="/projects" className="ml-1 text-sm font-medium text-black hover:text-gray-900 md:ml-2">
-									Contract
+									Projects
 								</Link>
 							</div>
 						</li>
@@ -49,7 +49,7 @@ export default function Projects() {
 						</li> */}
 					</ol>
 				</nav>
-				<h4 className="h4">Contracts</h4>
+				<h4 className="h4">Projects</h4>
 				<div className="flex justify-between space-x-8">
 					<form className="">
 						<label htmlFor="projects-search" className="sr-only">
@@ -57,7 +57,7 @@ export default function Projects() {
 						</label>
 						<div className="flex pl-3 text-gray-900 border border-gray-300 rounded-lg bg-gray-50">
 							<MagnifyingGlassIcon onClick={()=>{}} className="w-5 h-5 my-auto"/>
-							<input type="text" name="project" id="project-search" className="mr-2 border-0 outline-none bg-gray-50 focus:ring-0 lg:w-80" placeholder="Search for contract"/>
+							<input type="text" name="project" id="project-search" className="mr-2 border-0 outline-none bg-gray-50 focus:ring-0 lg:w-80" placeholder="Search for project"/>
 						</div>
 					</form>
 					<DropdownMenu label="New" options={menu}/>

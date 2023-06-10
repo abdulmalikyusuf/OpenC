@@ -1,13 +1,13 @@
 
 export const NavigationRoutes = {
     // pages
-    DashboardOverview: { path: "/home" },
+    DashboardOverview: { path: "/dashboard" },
     Projects: { path: "/projects" },
     Sites: { path: "/sites" },
     Report: { path: "/report" },
     Project: { path: "/projects/:id" },
     RedFlags: { path: "/red-flags" },
-    Volunteers: { path: "/volunteers" },
+    Community: { path: "/community" },
     MoV: { path: "/mov" },
     STIPillars: { path: "/sti-pillars" },
     Accountability: { path: "/accountability" },

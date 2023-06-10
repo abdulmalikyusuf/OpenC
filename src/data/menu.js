@@ -5,7 +5,7 @@ const menu = [
     {
         title: "Dashboard Overview",
         icon: <ChartPieIcon className="w-6 h-6"/>,
-        link: "/home"
+        link: "/dashboard"
     },
     {
         title: "Accountability",
@@ -13,7 +13,7 @@ const menu = [
         link: "/accountability"
     },
     {
-        title: "Contracts",
+        title: "Projects",
         icon: <BuildingOffice2Icon className="w-6 h-6"/>,
         link: "/projects"
     },
@@ -33,9 +33,9 @@ const menu = [
         link: "/red-flags"
     },
     {
-        title: "Volunteers",
+        title: "Community",
         icon: <UserGroupIcon className="w-6 h-6"/>,
-        link: "/volunteers"
+        link: "/community"
     },
     {
         title: "MoV",

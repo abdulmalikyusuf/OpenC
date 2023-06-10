@@ -14,20 +14,10 @@ function Sites() {
 					<div className="">
 						<label className="font-medium">Filter Coordinates</label>
 						<select defaultValue="0" className="w-full text-sm rounded-lg placeholder:font-medium placeholder:text-sm">
-							<option value="0">All</option>
-							<option value="1">State</option>
-							<option value="2">Sector</option>
-							<option value="2">LGA</option>
+							<option value="0">Supplier Address</option>
+							<option value="1">Project Locations</option>
 						</select>
 					</div>
-					{/* <div className="">
-						<label className="font-medium">SDP Pillar</label>
-						<select defaultValue="0" className="w-full text-sm rounded-lg placeholder:font-medium placeholder:text-sm">
-							{SDPPillars.map(pillar => (
-								<option key={pillar.code} value={pillar.code}>{pillar.title}</option>
-							))}
-						</select>
-					</div> */}
 				</div>
 			</div>
 			<div className="">
